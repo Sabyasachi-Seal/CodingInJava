@@ -1,5 +1,8 @@
 package com.seal;
 import java.util.Scanner;
+
+// Java Follows the Unicode principles so it can be used to represent any character. I Can even use Bengali or any other Character
+
 public class TypeCasting {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
@@ -29,5 +32,17 @@ public class TypeCasting {
 
         int d = 'A';
         System.out.println(d);// It will print the ASCII value of A. It is possible only because char is smaller than int
+
+        byte b2 = 42;
+        char c = 'a';
+        short s = 1024;
+        int i = 50000;
+        float f = 5.67f;
+        double d2 = 0.1234;
+        double result = (f * b2) + (i / c) - (d2 * s);
+        // float + int - double = double
+        System.out.println((f * b2) + " " + (i / c) + " " + (d2 * s));
+        System.out.println(result);
     }
+
 }
