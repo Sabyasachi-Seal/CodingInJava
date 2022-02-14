@@ -1,5 +1,6 @@
 package com.seal;
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Arrays {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
@@ -17,5 +18,6 @@ public class Arrays {
         for(int i=0; i<arr.length; i++){
             System.out.println(arr[i]);
         }
+        ArrayList<Integer> newlist = new ArrayList<Integer>();
     }
 }
