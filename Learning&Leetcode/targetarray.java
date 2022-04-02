@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 // https://leetcode.com/problems/create-target-array-in-the-given-order/
 class targetarray {
     public static void main(String[] args) {
@@ -33,19 +35,27 @@ class targetarray {
         //     }
         //     System.out.println();
         // }
-        for(int i = nums.length-1; i>0; i--){
-            for(int j=i-1; j>=0; j--){
-                if(index[j]>=index[i]){
-                    index[j]++;
-                }
-            }
-            for(int i1 = 0; i1<index.length; i1++){
-                System.out.print(index[i1] + " ");
-            }
-            System.out.println();
+
+        // for(int i = nums.length-1; i>0; i--){
+        //     for(int j=i-1; j>=0; j--){
+        //         if(index[j]>=index[i]){
+        //             index[j]++;
+        //         }
+        //     }
+        //     for(int i1 = 0; i1<index.length; i1++){
+        //         System.out.print(index[i1] + " ");
+        //     }
+        //     System.out.println();
+        // }
+        // for(int i = 0; i<nums.length; i++){
+        //     arr[i] = nums[index[i]];
+        // }
+        ArrayList<Integer> temp = new ArrayList<>();
+        for(int i=0; i<nums.length; i++){
+            temp.add(index[i], nums[i]);
         }
-        for(int i = 0; i<nums.length; i++){
-            arr[i] = nums[index[i]];
+        for(int i=0; i<temp.size(); i++){
+            arr[i] = temp.get(i);
         }
         return arr;
     }
