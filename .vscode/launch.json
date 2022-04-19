@@ -1,0 +1,119 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Arrays",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Arrays",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Basics",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Basics",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch CelciusToFarenheit",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.CelciusToFarenheit",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Conditionals",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Conditionals",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch HelloWorld",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.HelloWorld",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Loops",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Loops",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Methods",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Methods",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReverseNum",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.ReverseNum",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Sum",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.Sum",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch TypeCasting",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.TypeCasting",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch VarArgs",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.VarArgs",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch arrayformlc",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.arrayformlc",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch countdigits",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.countdigits",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch fibonacci",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.fibonacci",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
+            "name": "Launch switchcase",
+            "request": "launch",
+            "mainClass": "IntelliJava.src.com.seal.switchcase",
+            "projectName": "CodingInJava_fdcb283f"
+        }
+    ]
+}
