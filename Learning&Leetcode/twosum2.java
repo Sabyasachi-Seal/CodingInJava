@@ -2,15 +2,20 @@
 
 class twosum2{
     public static int[] twoSum(int[] numbers, int target) {
-        int start = 0; 
+        int start, i, rem; 
         int end = numbers.length-1;
-        int mid = 1;
+        int mid=1;
         int ans[] = new int[2];
-        for(int i=0; i<numbers.length; i++){
-            int rem = target-numbers[i];
+        for(i=0; i<numbers.length; i++){
+            rem = target-numbers[i];
+            start = i;
             while(start<=end){
                 mid = start + (end-start)/2;
-                if(numbers[mid]==rem){
+                if(mid == i){
+                    start++;
+                    continue;
+                }
+                else if(numbers[mid]==rem){
                     ans[1] = mid+1;
                     ans[0] = i+1;
                     return ans;
@@ -19,15 +24,17 @@ class twosum2{
                     start = mid+1;
                 }
                 else{
-                    end = mid - 1;
+                    end = mid-1;
                 }
             }
         }
+        ans[1] = mid;
+        ans[0] = i;
         return ans;
     }
     public static void main(String[] args) {
-        int arr[] = {5, 25, 75};
-        int target = 100;
+        int arr[] = {1,2,3,4,4,9,56,90};
+        int target = 8;
         int ans[] = twoSum(arr, target);
         System.out.println(ans[0]);
         System.out.println(ans[1]);

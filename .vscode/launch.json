@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch twosum2",
+            "request": "launch",
+            "mainClass": "twosum2",
+            "projectName": "CodingInJava_fdcb283f"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
