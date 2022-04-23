@@ -1,2 +1,1 @@
-System.out.println(logs[i][1]);
-            // System.out.println(logs[i+1][0]);
+(mid+1)/2==n/mid
