@@ -2,37 +2,28 @@
 public class countnegative {
     public static int countNegatives(int[][] grid) {
         int count = 0;
-        int flag = 0;
         for(int matrix=0; matrix<grid.length; matrix++){
             int start =0, end = grid[matrix].length-1, mid=0;
-            flag  = 0;
             while(start<=end){
                 mid = start + (end-start)/2;
                 if(grid[matrix][mid]<0){
-                    flag = 1;
                     end = mid - 1;
                 }
                 else{
                     start = mid + 1;
                 }
             }
-            if(flag==1){
-                count += grid[matrix].length - mid;
-                while(grid[matrix][mid]>0){
-                    mid++;
-                    count--;
-                }
-            }
+            count += grid[matrix].length - start;
         }
         // int j;
         // for(int[] i: grid){
         //     for(j=i.length-1; j>=0; j--){
-        //         // System.out.println(i[j]);
         //         if(i[j]>=0){
         //             break;
         //         }
         //     }
         //     count += i.length-j-1;
+        //     System.out.println(count);
         // }
         return count;
     }
