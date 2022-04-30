@@ -1,11 +1,10 @@
-import java.util.*;
 public class reshapearray {
     public static int[][] matrixReshape(int[][] mat, int r, int c) {
         if((mat.length*mat[0].length) == r*c){
-            // ArrayList<Integer> ans = new ArrayList<Integer>();
             int[][] ans = new int[r][c];
-            for(int i=0;i<mat.length*mat[0].length;i++){
-                ans[i/c][i%c] = mat[i/mat[0].length][i%mat[0].length];
+            r = mat[0].length;
+            for(int i=0;i<(mat.length*mat[0].length);i++){
+                ans[i/c][i%c] = mat[i/r][i%r];
             }
             return ans;
         }
