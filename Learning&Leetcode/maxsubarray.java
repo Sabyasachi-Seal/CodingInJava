@@ -1,12 +1,13 @@
 public class maxsubarray {
     public static int maxSubArray(int[] nums){
-        int max= -Integer.MAX_VALUE, sum;
-        for(int i=0; i<nums.length; i++){
-            sum = nums[i];
-            max = max(max, sum);
-            for(int j=i+1; j<nums.length; j++){
-                sum += nums[j];
-                max = max(max, sum);
+        int max = nums[0], sum = 0;
+        for(int num: nums){
+            sum += num;
+            if(sum>max){
+                max = sum;
+            }
+            if(sum<0){
+                sum = 0;
             }
         }
         return max;
@@ -15,7 +16,7 @@ public class maxsubarray {
         return (a>b)?a:b;
     }
     public static void main(String[] args) {
-        int[] arr = {-2, 1,-3,4,-1,2,1,-5,4};
+        int[] arr = {-2};
         System.out.println(maxSubArray(arr));
     }
 }
