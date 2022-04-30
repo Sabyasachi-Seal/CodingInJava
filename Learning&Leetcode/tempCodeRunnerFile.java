@@ -1,10 +1,10 @@
-// int j;
-        // for(int[] i: grid){
-        //     for(j=i.length-1; j>=0; j--){
-        //         if(i[j]>=0){
-        //             break;
-        //         }
-        //     }
-        //     count += i.length-j-1;
-        //     System.out.println(i.length-j-1);
-        // }
+if(digits[0]>9){
+            //     int[] ans = new int[digits.length+1];
+            //     int i;
+            //     for (i=ans.length-2; i>0; i--) {
+            //         ans[i] = digits[i];
+            //     }
+            //     ans[i] = 1;
+            //     ans[i+1] = 0;
+            //     return ans;
+            // }
