@@ -3,26 +3,19 @@ import javax.xml.transform.Source;
 // https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/
 public class movechips {
     public static int minCostToMoveChips(int[] position) {
-        int cost = 0;
-        for(int i=1; i<position.length; i++){
-            // if(position[i-1]==position[i]){
-            //     if(((position[i-1]-position[i])&1)==0){
-            //         cost++;
-            //     }
-            // }
-            // else{
-            //     if(((position[i]-position[i-1])&1)==0){
-            //         cost++;
-            //     }
-            // }
-            if((i&1)==1 && position[i]!=position[i-1]){
-                cost++;
+        int odd = 0;
+        for(int num: position){
+            if((num&1)==1){
+                odd++;
             }
         }
-        return cost;
+        if(position.length-odd==0){
+            return 0;
+        }
+        return (odd>position.length-odd)?odd:position.length-odd;
     }
     public static void main(String[] args) {
-        int[] arr = {2, 3, 3};
+        int[] arr = {1, 1, 1};
         System.out.println(minCostToMoveChips(arr));
     }
 }
