@@ -1,10 +1,11 @@
-if(digits[0]>9){
-            //     int[] ans = new int[digits.length+1];
-            //     int i;
-            //     for (i=ans.length-2; i>0; i--) {
-            //         ans[i] = digits[i];
-            //     }
-            //     ans[i] = 1;
-            //     ans[i+1] = 0;
-            //     return ans;
-            // }
+  int count = 0;
+        for(int i=0; i<nums.length; i++){
+            int j = i+1;
+            while(j<nums.length && nums[j]==nums[i]){
+                count++;
+                j++;
+            }
+            nums[++i] = nums[j];
+        }
+        return nums.length - count;
+    }
