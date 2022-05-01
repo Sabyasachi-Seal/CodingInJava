@@ -1,15 +1,20 @@
-import java.io.LineNumberInputStream;
 import java.util.Arrays;
-
 // https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/
 public class specialarray {
-    public int specialArray(int[] nums) {
+    public static int specialArray(int[] nums) {
         int count = 0;
         Arrays.sort(nums);
-        int ind = 0;
-        for (int i = 1; i < nums[nums.length-1]; i++) {
-            if(i<nums[i]){
-                if(i == nums.length-i);
+        // int ind = 0;
+        for (int i = 1; i <= nums[nums.length-1]; i++) {
+            count = 0;
+            for (int j = 0; j < nums.length;) {
+                if(i <= nums[j]){
+                    count++;
+                }
+                j++;
+            }
+            if(count == i){
+                return count;
             }
             // ind = binarysearch(nums, i+1, nums.length-1, i);
             // int temp = ind;
@@ -24,22 +29,26 @@ public class specialarray {
             //     count = 0;
             // }
         }
-        return ind;
+        return -1;
     }
-    public static int binarysearch(int[] arr, int start, int end, int target){
-        int mid;
-        while(start<=end){
-            mid  = start + (end - start)/2;
-            if(arr[mid]==target){
-                return mid;
-            }
-            else if(arr[mid]<target){
-                start = mid+1;
-            }
-            else{
-                end = mid -1;
-            }
-        }
-        return end;
+    // public static int binarysearch(int[] arr, int start, int end, int target){
+    //     int mid;
+    //     while(start<=end){
+    //         mid  = start + (end - start)/2;
+    //         if(arr[mid]==target){
+    //             return mid;
+    //         }
+    //         else if(arr[mid]<target){
+    //             start = mid+1;
+    //         }
+    //         else{
+    //             end = mid -1;
+    //         }
+    //     }
+    //     return end;
+    // }
+    public static void main(String[] args) {
+        int arr[] = {3, 5};
+        System.out.println(specialArray(arr));
     }
 }
