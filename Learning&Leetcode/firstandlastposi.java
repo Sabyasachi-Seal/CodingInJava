@@ -2,16 +2,14 @@
 public class firstandlastposi {
     public static int[] searchRange(int[] nums, int target) {
         int[] ans = new int[2];
-        int posi = binarysearch(nums, 0, nums.length-1, target);
-        while(posi>0 && nums[posi] == nums[posi-1])    {
-            posi = binarysearch(nums, 0, posi, target);
+        ans[0] = binarysearch(nums, 0, nums.length-1, target);
+        while(ans[0]>0 && nums[ans[0]] == nums[ans[0]-1])    {
+            ans[0] = binarysearch(nums, 0, ans[0], target);
         }
-        ans[0] = posi;
-        posi = binarysearch(nums, 0, nums.length-1, target);
-        while(posi>-1 && posi<nums.length-1 && nums[posi] == nums[posi+1])    {
-            posi = binarysearch(nums, posi+1, nums.length-1, target);
+        ans[1] = binarysearch(nums, 0, nums.length-1, target);
+        while(ans[1]>-1 && ans[1]<nums.length-1 && nums[ans[1]] == nums[ans[1]+1])    {
+            ans[1] = binarysearch(nums, ans[1]+1, nums.length-1, target);
         }
-        ans[1] = posi;
         return ans;
     }
     public static int binarysearch(int[]arr, int start, int end, int target){
