@@ -2,7 +2,7 @@
 // https://www.youtube.com/watch?v=MjpAAE3-hYg
 public class maximumvalue {
     public int maxValue(int n, int index, int maxSum) {
-    //     long r = n - index - 1;//right index
+    //     long r   = n - index - 1;//right index
     //     long l = index;
     //     long start = 1;//for binary search
     //     long end = maxSum;
@@ -13,11 +13,11 @@ public class maximumvalue {
     //         long ls=0;
     //         long rs = 0;
     //         long m=mid-1;
-    //         if(r<=m){
-    //             rs = m*(m+1)/2 - (m-r)*(m-r+1)/2;
+    //         if(r < =m){
+    //             rs = m*(m+1)/2 - (m-r ) *(m-r + 1)/2;
     //         }
     //         else{
-    //             rs = m*(m+1)/2 - 1*(r-m);
+    //             rs = m*(m+1)/2 - 1*(r - m);
     //         }
     //         if(l<=m){
     //             ls = m*(m+1)/2 - (m-l)*(m-l+1)/2;
@@ -36,7 +36,7 @@ public class maximumvalue {
     //     }
     //     return (int)ans;
     // }
-    long r=n-index-1;
+    long r = n-index-1;
         long l=index;
         
         long hi=maxSum;
@@ -52,10 +52,10 @@ public class maximumvalue {
             long rs=0;//sum on right
             long m=mid-1;
             
-            if(r<=m)
-                rs=m*(m+1)/2 - (m-r)*(m-r+1)/2;
+            if(r <= m)
+                rs=m*(m+1)/2 - (m-r)*(m-r + 1)/2;
             else
-                rs=m*(m+1)/2 + 1*(r-m);
+                rs=m*(m+1)/2 + 1*(r - m);
             
             if(l<=m)
                 ls=m*(m+1)/2 - (m-l)*(m-l+1)/2;
