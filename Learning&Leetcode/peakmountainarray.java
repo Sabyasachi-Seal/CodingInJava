@@ -14,7 +14,8 @@ public class peakmountainarray {
         return start;
     }
     public static void main(String[] args) {
-        int[] arr = {24,69,99,100,79,78,67,36,26,19};
+        // int[] arr = {24,69,99,100,79,78,67,36,26,19};
+        int[] arr = {5,6,7,0,1,2,4};
         System.out.println(peakIndexInMountainArray(arr));
     }
 }
