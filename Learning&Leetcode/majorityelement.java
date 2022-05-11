@@ -1,5 +1,5 @@
 import java.util.*;
-
+// https://leetcode.com/problems/majority-element/
 class majorityelement {
     public static int majorityElement(int[] nums) {
         // Arrays.sort(nums);
