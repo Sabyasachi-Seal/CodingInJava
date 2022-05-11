@@ -21,6 +21,19 @@ class majorityelement {
         // return nums[i];
         // Arrays.sort(nums);
 	    // return nums[nums.length/2];
+        int ele = 0, count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(count == 0){
+                ele = nums[i];
+            }
+            if(nums[i] ==  ele){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        return ele;
     }
     public static void main(String[] args) {
         int[] arr = {3, 2, 3};
