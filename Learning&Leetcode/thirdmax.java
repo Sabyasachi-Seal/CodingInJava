@@ -18,43 +18,67 @@ public class thirdmax {
         // }
         // return ans.get(ans.size()-3);
         
-        int i;
-        ArrayList<Integer> ans = new ArrayList<Integer>();
-        ans.add(nums[0]);
-        for (i = 1; i < nums.length; i++) {
-            if(nums[i]!=nums[i-1]) ans.add(nums[i]);
-        }
-        if(ans.size()<2){
-            return nums[0];
-        }
-        else if(ans.size()<3){
-            return (ans.get(0)>ans.get(1))?ans.get(0):ans.get(1);
-        }
-        int m1=Integer.MIN_VALUE, m2=Integer.MIN_VALUE, m3=Integer.MIN_VALUE;
-        for (i = 0; i < ans.size(); i++) {
-            if(ans.get(i)>m1){
-                m1 = ans.get(i);
+        // int i;
+        // ArrayList<Integer> ans = new ArrayList<Integer>();
+        // ans.add(nums[0]);
+        // for (i = 1; i < nums.length; i++) {
+        //     if(nums[i]!=nums[i-1]) ans.add(nums[i]);
+        // }
+        // if(ans.size()<2){
+        //     return nums[0];
+        // }
+        // else if(ans.size()<3){
+        //     return (ans.get(0)>ans.get(1))?ans.get(0):ans.get(1);
+        // }
+        // int m1=Integer.MIN_VALUE, m2=Integer.MIN_VALUE, m3=Integer.MIN_VALUE;
+        // for (i = 0; i < ans.size(); i++) {
+        //     if(ans.get(i)>m1){
+        //         m1 = ans.get(i);
+        //     }
+        //     else if(ans.get(i)>m2 && ans.get(i)<m1){
+        //         m2 = ans.get(i);
+        //     }
+        //     else if(ans.get(i)>m3 && ans.get(i)<m2){
+        //         m3 = ans.get(i);
+        //     }
+        // }
+        // for (i = 0; i < ans.size(); i++) {
+        //     if(ans.get(i)>m2 && ans.get(i)<m1){
+        //         m2 = ans.get(i);
+        //     }
+        // }
+        // for (i = 0; i < ans.size(); i++) {
+        //     if(ans.get(i)>m3 && ans.get(i)<m2){
+        //         m3 = ans.get(i);
+        //     }
+        // }
+        // if(m3 == Integer.MIN_VALUE && !(ans.contains(m3))){
+        //     Arrays.sort(nums);
+        //     return nums[nums.length-1];
+        // }
+        // return m3;
+
+
+        Integer m1 =null,  m2=null, m3 = null;
+        for(Integer num: nums){
+            if(num.equals(m1) || num.equals(m2) || num.equals(m3)){
+                continue;
             }
-            else if(ans.get(i)>m2 && ans.get(i)<m1){
-                m2 = ans.get(i);
+            if(m1==null || num>m1){
+                m3 = m2;
+                m2 = m1;
+                m1 = num;
             }
-            else if(ans.get(i)>m3 && ans.get(i)<m2){
-                m3 = ans.get(i);
+            else if(m2 == null || num>m2){
+                m3 = m2;
+                m2 = num;
             }
-        }
-        for (i = 0; i < ans.size(); i++) {
-            if(ans.get(i)>m2 && ans.get(i)<m1){
-                m2 = ans.get(i);
-            }
-        }
-        for (i = 0; i < ans.size(); i++) {
-            if(ans.get(i)>m3 && ans.get(i)<m2){
-                m3 = ans.get(i);
+            else if(m3 == null || num>m3){
+                m3 = num;
             }
         }
-        if(m3 == Integer.MIN_VALUE && !(ans.contains(m3))){
-            Arrays.sort(nums);
-            return nums[nums.length-1];
+        if(m3 == null){
+            return m1;
         }
         return m3;
     }
