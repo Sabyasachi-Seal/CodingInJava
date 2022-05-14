@@ -1,81 +1,44 @@
-// import java.util.*;
+import java.util.*;
 public class twosum {
     public static int[] twoSum(int[] nums, int target) {
-        int[] ori = nums.clone();
-        quicksort(nums, 0, nums.length-1);
-        int[] ans = new int[2]; 
-        for(int i=0; i<ori.length; i++){
-            if(binarysearch(nums, i+1, ori.length-1, target-ori[i])>-1){
-                ans[0] = i;
-                ans[1] = linearsearch(ori, i+1, target-ori[i]);
+        int[] copy = new int[nums.length];
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = nums[i];
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if(search(nums, 0, nums.length-1, target-copy[i])){
+                int s = linear(copy, target-copy[i]);
+                if(s!=i) return new int[] {i, s};
             }
         }
-        return ans;
+        return new int[] {-1, -1};
     }
-    public static int linearsearch(int[]arr, int start, int target){
-        for(int n=start; n<arr.length; n++){
-            if(arr[n] == target){
-                return n;
-            }
+    public static int linear(int[] arr, int search) {
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == search) return i;
         }
-        return -1;
+        return 0;
     }
-    public static int binarysearch(int[]arr, int start, int end,  int target){
-        int mid;
+    public static boolean search(int[] nums, int start, int end, int target) {
+        int mid=0;
         while(start<=end){
-            mid = start + (end-start)/2;
-            if(arr[mid]==target){
-                return mid;
+            mid = start + (end - start)/2;
+            if(nums[mid]==target){
+                return true;
             }
-            else if(arr[mid]<target){
+            else if(nums[mid]<target){
                 start = mid +1;
             }
             else{
                 end = mid -1;
             }
         }
-        return -1;
+        return false;
     }
-    public static void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-    public static int partition(int[] arr, int low, int high){
-        int pivot = arr[high];
-        int i = low -1;
-        for (int j = low; j <= high-1; j++) {
-            if(arr[j]<pivot){
-                i++;
-                swap(arr, i, j);
-            }
-        }
-        swap(arr, i+1, high);
-        return (i+1);
-    }
-    public static void quicksort(int[] arr, int low, int high){
-        if(low<high){
-            int pi = partition(arr, low, high);
-            quicksort(arr, low, pi-1);
-            quicksort(arr, pi+1, high);
-        }
-    }
-    // public static int[] twoSum(int[] nums, int target) {
-    //     int ans[] = new int[2];
-    //     for(int i=0; i<nums.length; i++){
-    //         for(int j=i; j<nums.length; j++){
-    //             if(nums[i]+nums[j]==target){
-    //                 ans[0] = i;
-    //                 ans[1] = j;
-    //                 return ans;
-    //             }
-    //         }
-    //     }
-    //     return ans;
-    // }
     public static void main(String[] args) {
-        int[] arr = {-1,-2,-3,-4,-5};
-        int target = -8;
+        int[] arr = {-3, -2, -4};
+        int target = -6;
         int a[] = twoSum(arr, target);
         System.out.println(a[0]);
         System.out.println(a[1]);
