@@ -1,1 +1,2 @@
-g
+
+            //     innerlist.add(copy[i]);
