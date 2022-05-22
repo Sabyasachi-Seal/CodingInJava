@@ -2,33 +2,42 @@
 import java.util.*;
 class ranktransform {
     public static int[] arrayRankTransform(int[] arr) {
-        ArrayList<Integer> copy = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if(!copy.contains(arr[i])) copy.add(arr[i]);
+        int[] copy = new int[arr.length];
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = arr[i];
         }
-        Collections.sort(copy);
+        Arrays.sort(copy);
+        // int ci = -1;
+        // int cc = 0;
+        // for (int i = 0; i < copy.length-1; i++) {
+        //     if(copy[i]==copy[i+1]){
+        //         if(ci==-1) ci = i+1;
+        //         cc++;
+        //     }
+        // }
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = search(copy, 0, copy.size()-1, arr[i]) + 1;
+            int ind = search(copy, 0, arr.length-1, arr[i]);
+            // if(ind>=ci){
+            //     arr[i] = ind + 1 - cc;
+            // }
+            // else{
+            //     arr[i] = ind + 1;
+            // }
+            arr[i] = ind + 1; 
         }
         return arr;
     }
-    public static int search(ArrayList<Integer> arr, int start, int end, int target){
+    public static int search(int[] arr, int start, int end, int target){
         int mid;
         while(start<=end){
             mid = start + (end-start)/2;
-            if(arr.get(mid) == target){
+            if(arr[mid] == target){
+                while(mid>0 && arr[mid]==arr[mid-1]){
+                    mid--;
+                }
                 return mid;
-                // if(mid>0 && arr.get(mid-1)!=arr.get(mid)){
-                //     return mid;
-                // }
-                // else if(mid<arr.size()-1 && arr.get(mid+1)!=arr.get(mid)){
-                //     return mid;
-                // }
-                // else{
-                    
-                // }
             }
-            else if(arr.get(mid)<target){
+            else if(arr[mid]<target){
                 start = mid + 1;
             }
             else{
