@@ -33,9 +33,9 @@ public class binarycodes {
     //     }
     // }
     public static boolean hasAllCodes(String s, int k){
-        Set<String> seen = new HashSet<>();
+        HashMap<String, Integer> seen = new HashMap<>();
         for (int i = k; i <= s.length() && seen.size() < 1<<k; i++) {
-            seen.add(s.substring(i-k, i));
+            seen.put((s.substring(i-k, i)), i);
         }
         return seen.size()==1<<k;
     }
