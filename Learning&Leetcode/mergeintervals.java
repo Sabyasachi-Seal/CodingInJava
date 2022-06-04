@@ -3,29 +3,18 @@ import java.util.*;
 public class mergeintervals {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
-        List<List<Integer>> arr = new ArrayList<>();    
-        int index = 0;
-        for (int i = 0; i < intervals.length; i++) {
-            List<Integer> temp = new ArrayList<>();
-            if(i+1<intervals.length && intervals[i][1]>=intervals[i+1][0]){
-                temp.add(intervals[i][0]);
-                temp.add(Math.max(intervals[i+1][1], intervals[i][1]));
-                i++;
+        List<int[]> ans = new ArrayList<>();
+        int[] currint = intervals[0];
+        ans.add(currint);
+        for (int[] inter : intervals) {
+            if(currint[1] >= inter[0]){
+                currint[1] = Math.max(currint[1], inter[1]);
             }
             else{
-                temp.add(intervals[i][0]);
-                temp.add(intervals[i][1]);
-            }
-            arr.add(temp);
-        }   
-        int ans[][] = new int[arr.size()][2];
-        for (int i = 0; i < ans.length; i++) {
-            List<Integer> temp = arr.get(i);
-            index= 0;
-            for(int t: temp){
-                ans[i][index++] = t;
+                currint = inter;
+                ans.add(currint);
             }
         }
-        return ans;
+        return ans.toArray(new int[ans.size()][]);
     }    
 }
