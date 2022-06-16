@@ -1,78 +1,51 @@
 // https://leetcode.com/problems/longest-palindromic-substring/
 public class longestplaindromicsubstring {
-    public static String longestPalindrome(String s) {
-        StringBuilder sb1 = new StringBuilder();
-        int left = 0, right = s.length();
-        int i = 0;
-        while(left<=right){
-            String temp = s.substring(left, right);
-            if(ispali(temp)){
-                sb1 = sb1.append(temp);
-                break;
+    // public static String longestPalindrome(String s) {
+    //     StringBuilder sb1 = new StringBuilder();
+    //     for (int i = 0; i <= s.length(); i++) {
+    //         for (int j = i; j <= s.length(); j++) {
+    //             String temp = s.substring(i, j);
+    //             if(ispali(temp) && temp.length()>sb1.length()){
+    //                 sb1.delete(0, sb1.length());
+    //                 sb1.append(temp);
+    //             }
+    //         }
+    //     }
+    //     return sb1.toString();
+    // }
+    // public static boolean ispali(String s){
+    //     int left = 0, right = s.length()-1;
+    //     while(left<right){
+    //         if(s.charAt(left) != s.charAt(right)){
+    //             return false;
+    //         }
+    //         left++;
+    //         right--;
+    //     }
+    //     return true;
+    // }
+    public static String longestPalindrome(String s){
+        if(s.length()<1) return "";
+        int start = 0, end=0;
+        for (int i = 0; i < s.length(); i++) {
+            int len = Math.max(maxpali(s, i, i), maxpali(s, i, i+1));
+            if(len > end-start){
+                start = i - ((len-1)/2);
+                end = i + (len/2);
             }
-            else if(i%2==0){
-                right--;
-            }
-            else{
-                left++;
-            }
-            i++;
         }
-        left = 0;
-        right = s.length();
-        i = 0;
-        while(left<=right){
-            String temp = s.substring(left, right);
-            if(ispali(temp) && temp.length()>sb1.length()){
-                sb1.delete(0, sb1.length());
-                sb1 = sb1.append(temp);
-                break;
-            }
-            else if(i%2==0){
-                left++;
-            }
-            else{
-                right--;
-            }
-            i++;
-        }
-        left = 0;
-        right = s.length();
-        while(left<=right){
-            String temp = s.substring(left, right);
-            if(ispali(temp) && temp.length()>sb1.length()){
-                sb1.delete(0, sb1.length());
-                sb1 = sb1.append(temp);
-                break;
-            }
-            left++;
-        }
-        left = 0;
-        right = s.length();
-        while(left<=right){
-            String temp = s.substring(left, right);
-            if(ispali(temp) && temp.length()>sb1.length()){
-                sb1.delete(0, sb1.length());
-                sb1 = sb1.append(temp);
-                break;
-            }
-            right--;
-        }
-        return sb1.toString();
+        return s.substring(start, end+1);
     }
-    public static boolean ispali(String s){
-        int left = 0, right = s.length()-1;
-        while(left<right){
-            if(s.charAt(left) != s.charAt(right)){
-                return false;
-            }
-            left++;
-            right--;
+    public static int maxpali(String s, int left, int right){
+        if(left>right || s == null) return 0;
+        while(left>=0 && right<s.length() && s.charAt(left) == s.charAt(right)){
+            left--;
+            right++;
         }
-        return true;
+        return right - left - 1;
     }
     public static void main(String[] args) {
-        String s = "eabcb";
+        String s = "aacabdkacaa";
         System.out.println(longestPalindrome(s));
     }
 }
