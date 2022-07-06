@@ -15,7 +15,7 @@ public class lettercombinations {
 
         else{
             int start = (dig-2)*3;
-            int end = (dig-1) *3;
+            int end = (dig-1)*3;
             if(dig == 7){
                 end++;
             }
