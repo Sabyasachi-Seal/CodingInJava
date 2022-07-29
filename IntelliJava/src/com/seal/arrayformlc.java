@@ -1,8 +1,8 @@
 package com.seal;
 
 // https://leetcode.com/problems/add-to-array-form-of-integer/
-import java
 import java.lang.Math;
+import java.util.*;
 class arrayformlc {
     public static List<Integer> addToArrayForm(int[] num, int k) {
         int number = 0;
