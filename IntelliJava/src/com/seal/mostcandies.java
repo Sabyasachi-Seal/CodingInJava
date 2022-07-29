@@ -1,5 +1,6 @@
 package com.seal;
-class Solution {
+import java.util.*;
+class mostcandies {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> result = new ArrayList<>();
         int max = 0;

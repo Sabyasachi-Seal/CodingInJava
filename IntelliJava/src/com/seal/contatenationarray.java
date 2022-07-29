@@ -1,6 +1,6 @@
 package com.seal;
 
-class Solution {
+class contatenationarray {
     public int[] getConcatenation(int[] nums) {
         int n = nums.length * 2;
         int i;
