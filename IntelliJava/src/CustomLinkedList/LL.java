@@ -58,6 +58,28 @@ public class LL {
         size--;
     }
 
+    public void deleteNode(Node ele){
+        ele.val = ele.next.val;
+        ele.next = ele.next.next;
+        size--;
+    }
+
+    public void deleteFirst(){
+        head = head.next;
+    }
+
+    public Node getNode(int ind){
+        if(ind > size){
+            System.out.println("Index Absent");
+            return null;
+        }
+        Node temp = head;
+        for (int i = 0; i < ind; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
     public void display(){
         Node temp = head;
         while(temp != null){
