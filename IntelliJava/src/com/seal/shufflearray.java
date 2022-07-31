@@ -1,6 +1,6 @@
 package com.seal;
 
-class Solution {
+class shufflearray {
     public int[] shuffle(int[] nums, int n) {
         int arr[] = new int[nums.length];
         for(int i=0; i<nums.length; i++) {

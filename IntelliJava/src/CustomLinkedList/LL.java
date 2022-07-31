@@ -1,0 +1,83 @@
+package CustomLinkedList;
+
+import javax.swing.plaf.synth.SynthTextAreaUI;
+
+public class LL {
+    private Node head;
+    private Node tail;
+    protected int size;
+
+    public LL(){
+        this.size = 0;
+    }
+
+    public void insertFirst(int val){
+        Node newnode = new Node(val);
+        newnode.next = head;
+        head = newnode;
+        if(tail == null) tail = head;
+        size++;
+    }
+
+    public void insertLast(int val){
+        if(tail == null) insertFirst(val);
+        else {
+            Node newnode = new Node(val);
+            tail.next = newnode;
+            tail = newnode;
+            size++;
+        }
+    }
+
+    public void insertIndex(int val, int index){
+        if(index > size) {
+            System.out.println("Enter valid Index");
+            return;
+        }
+        Node temp = head;
+        while(index > 0){
+            temp =  temp.next;
+            index--;
+        }
+        Node newnode = new Node(val);
+        newnode.next = temp.next;
+        temp.next = newnode;
+        size++;
+    }
+
+    public void deleteValue(int val){
+        Node temp = head;
+        while(temp!=null && temp.next.val != val){
+            temp = temp.next;
+        }
+        if(temp == null){
+            System.out.println("Cant find item " +val);
+            return;
+        }
+        temp.next = temp.next.next;
+        size--;
+    }
+
+    public void display(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.val+" -> ");
+            temp = temp.next;
+        }
+        System.out.println("Null");
+    }
+
+    // LL nodes;
+    private class Node{
+        private int val;
+        private Node next;
+        public Node(int val){
+            this.val = val;
+        }
+        public Node(int val, Node next){
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+}

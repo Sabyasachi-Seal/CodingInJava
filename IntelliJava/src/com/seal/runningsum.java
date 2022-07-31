@@ -1,6 +1,6 @@
 package com.seal;
 
-class Solution {
+class runningsum {
     public int[] runningSum(int[] nums) {
         int[] arr = new int[nums.length];
         arr[0] = nums[0];
