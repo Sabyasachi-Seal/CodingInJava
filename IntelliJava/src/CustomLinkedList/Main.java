@@ -12,7 +12,8 @@ public class Main {
         newlist.deleteValue(5);
         newlist.display();
         newlist.deleteNode(newlist.getNode(2));
-//        newlist.deleteFirst();
+        newlist.display();
+        newlist.deleteLast();
         newlist.display();
         System.out.println(newlist.size);
     }

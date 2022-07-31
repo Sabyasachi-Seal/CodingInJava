@@ -64,13 +64,20 @@ public class LL {
         size--;
     }
 
+    public void deleteLast(){
+        Node prelast = getNode(size-2);
+        prelast.next = null;
+        size--;
+    }
+
     public void deleteFirst(){
         head = head.next;
+        size--;
     }
 
     public Node getNode(int ind){
-        if(ind > size){
-            System.out.println("Index Absent");
+        if(ind >= size){
+            System.out.println("Underflow");
             return null;
         }
         Node temp = head;
