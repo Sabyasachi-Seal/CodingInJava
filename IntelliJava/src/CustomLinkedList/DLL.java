@@ -31,6 +31,7 @@ public class DLL {
         newnode.next = null;
         newnode.prev = temp;
         temp.next = newnode;
+        size++;
     }
 
     public int size(){
@@ -44,6 +45,53 @@ public class DLL {
         }
         System.out.println("Null");
     }
+
+    public void displayReverse(){
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        while(temp != null){
+            System.out.print(temp.val + " <- ");
+            temp = temp.prev;
+        }
+        System.out.println("Start");
+    }
+
+    public void insertNode(int index, int val){
+        if(index == 0){
+            insertFirst(val);
+        }
+        else if(index<0 || index>size-1){
+            System.out.println("Invalid Index");
+        }
+        else{
+            Node currnode = getNode(index-1);
+            Node newnode = new Node();
+            newnode.val = val;
+            newnode.next = currnode.next;
+            newnode.prev = currnode;
+            currnode.next = newnode;
+            if(newnode.next != null) newnode.next.prev = newnode;
+            size++;
+        }
+    }
+
+    public Node getNode(int ind){
+        if(ind<0 || ind>size-1){
+            System.out.println("Invalid Index");
+            return null;
+        }
+        else{
+            Node temp = head;
+            while(ind > 0){
+                temp = temp.next;
+                ind--;
+            }
+            return temp;
+        }
+    }
+
     private class Node{
         int val;
         Node prev;
