@@ -16,15 +16,24 @@ public class Main {
 //        newlist.deleteLast();
 //        newlist.display();
 //        System.out.println(newlist.size);
-        DLL doubleLL = new DLL();
+//        DLL doubleLL = new DLL();
 //        doubleLL.insertFirst(50);
-        for (int i = 0; i < 20; i++) {
-            doubleLL.insertLast(i+1);
+//        for (int i = 0; i < 20; i++) {
+//            doubleLL.insertLast(i+1);
+//        }
+//        doubleLL.insertNode(2, 55);
+//        doubleLL.display();
+//        doubleLL.deleteIndex(1);
+//        doubleLL.display();
+//        doubleLL.displayReverse();
+
+        CLL cll = new CLL();
+        for(int i=0;  i<20; i++){
+            cll.insertLast(i+1);
         }
-        doubleLL.insertNode(2, 55);
-        doubleLL.display();
-        doubleLL.deleteIndex(1);
-        doubleLL.display();
-        doubleLL.displayReverse();
+        cll.display();
+        cll.delete(12);
+        cll.display();
+
     }
 }
