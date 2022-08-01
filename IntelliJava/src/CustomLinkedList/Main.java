@@ -21,7 +21,9 @@ public class Main {
         for (int i = 0; i < 20; i++) {
             doubleLL.insertLast(i+1);
         }
-        doubleLL.insertNode(0, 55);
+        doubleLL.insertNode(2, 55);
+        doubleLL.display();
+        doubleLL.deleteIndex(1);
         doubleLL.display();
         doubleLL.displayReverse();
     }

@@ -33,7 +33,35 @@ public class DLL {
         temp.next = newnode;
         size++;
     }
-
+    public void deleteFirst(){
+        if(head == null) return;
+        head = head.next;
+        head.prev = null;
+        size --;
+    }
+    public void deleteIndex(int ind){
+        if(ind == 0){
+            deleteFirst();
+            return;
+        }
+        if(ind == size){
+            deleteLast();
+            return;
+        }
+        Node currnode = getNode(ind-1);
+        currnode.next = currnode.next.next;
+        currnode.next.prev = currnode;
+    }
+    public void deleteLast(){
+        if(head == null) return;
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        temp.prev.next = null;
+        temp.prev = null;
+        size--;
+    }
     public int size(){
         return size;
     }
