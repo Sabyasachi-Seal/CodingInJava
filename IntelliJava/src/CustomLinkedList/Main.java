@@ -27,13 +27,19 @@ public class Main {
 //        doubleLL.display();
 //        doubleLL.displayReverse();
 
-        CLL cll = new CLL();
-        for(int i=0;  i<20; i++){
-            cll.insertLast(i+1);
+//        CLL cll = new CLL();
+//        for(int i=0;  i<20; i++){
+//            cll.insertLast(i+1);
+//        }
+//        cll.display();
+//        cll.delete(12);
+//        cll.display();
+        LL list = new LL();
+        list.insertFirst(20);
+        for (int i = 0; i < 10; i++) {
+            list.insertFirst(i+1);
         }
-        cll.display();
-        cll.delete(12);
-        cll.display();
-
+        list.insertRec(0, 60);
+        list.display();
     }
 }

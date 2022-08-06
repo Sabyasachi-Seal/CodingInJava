@@ -45,6 +45,21 @@ public class LL {
         size++;
     }
 
+    public void insertRec(int ind, int val){
+        head = insertRec(ind, val, head);
+    }
+
+    private Node insertRec(int ind, int val, Node curr){
+        if(ind == 0){
+            Node newnode = new Node(val);
+            newnode.next = curr;
+            size++;
+            return newnode;
+        }
+        curr.next = insertRec(ind-1, val, curr.next);
+        return curr;
+    }
+
     public void deleteValue(int val){
         Node temp = head;
         while(temp!=null && temp.next.val != val){
