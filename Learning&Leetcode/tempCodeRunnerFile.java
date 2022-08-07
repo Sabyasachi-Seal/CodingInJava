@@ -1,2 +1,1 @@
-
-                int next = number + 1;
+dyyonfvzsretqxucmavxegvlnnjubqnwrhwikmnnrpzdovjxqdsatwzpdjdsneyqvtvorlwbkb
