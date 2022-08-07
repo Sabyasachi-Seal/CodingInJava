@@ -45,6 +45,21 @@ public class LL {
         size++;
     }
 
+    public void insertRec(int ind, int val){
+        head = insertRec(ind, val, head);
+    }
+
+    private Node insertRec(int ind, int val, Node curr){
+        if(ind == 0){
+            Node newnode = new Node(val);
+            newnode.next = curr;
+            size++;
+            return newnode;
+        }
+        curr.next = insertRec(ind-1, val, curr.next);
+        return curr;
+    }
+
     public void deleteValue(int val){
         Node temp = head;
         while(temp!=null && temp.next.val != val){
@@ -56,6 +71,35 @@ public class LL {
         }
         temp.next = temp.next.next;
         size--;
+    }
+
+    public void deleteNode(Node ele){
+        ele.val = ele.next.val;
+        ele.next = ele.next.next;
+        size--;
+    }
+
+    public void deleteLast(){
+        Node prelast = getNode(size-2);
+        prelast.next = null;
+        size--;
+    }
+
+    public void deleteFirst(){
+        head = head.next;
+        size--;
+    }
+
+    public Node getNode(int ind){
+        if(ind >= size){
+            System.out.println("Underflow");
+            return null;
+        }
+        Node temp = head;
+        for (int i = 0; i < ind; i++) {
+            temp = temp.next;
+        }
+        return temp;
     }
 
     public void display(){

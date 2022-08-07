@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch combinationsumiv",
+            "request": "launch",
+            "mainClass": "combinationsumiv",
+            "projectName": "CodingInJava_bb29a4ee"
+        },
+        {
+            "type": "java",
             "name": "Launch twosum2",
             "request": "launch",
             "mainClass": "twosum2",
