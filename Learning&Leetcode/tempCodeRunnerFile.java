@@ -1,23 +1,24 @@
-public int lengthOfLIS(int[] nums) {
-        subs(nums, new ArrayList<>(), 0);
-        return max;
-    }
-    public void subs(int arr[], ArrayList<Integer> ans, int i){
-        if(i == arr.length){
-            if(ans.size()>max && isincreasing(ans)){
-                max  = ans.size();
-                System.out.println(ans);
+public int numFactoredBinaryTrees(int[] arr) {
+        HashMap<Integer, Long> factor = new HashMap<>();
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            factor.put(arr[i], 1L);
+        }
+        ArrayList<int[]> ans = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if(arr[i] % arr[j] == 0 && factor.containsKey(arr[i]/arr[j])){
+                    factor.put(arr[i], factor.get(arr[i])+(factor.get(arr[j]) * factor.get(arr[i]/arr[j])));
+                    ans.add(new int[]{arr[i], arr[j], arr[i]/arr[j]});
+                }
             }
-            return;
         }
-        ans.add(arr[i]);
-        subs(arr, ans, i+1);
-        ans.remove(ans.size()-1);
-        subs(arr, ans, i+1);
-    }
-    public boolean isincreasing(ArrayList<Integer> ans){
-        for (int i = 0; i < ans.size()-1; i++) {
-            if(ans.get(i)>=ans.get(i+1)) return false; 
+        for (int i = 0; i < ans.size(); i++) {
+            System.out.println(Arrays.toString(ans.get(i)));
         }
-        return true;
+        int sum = 0;
+        for (int i = 0; i < factor.size(); i++) {
+            sum += factor.get(arr[i]);
+        }
+        return sum;
     }
