@@ -1,6 +1,5 @@
 import java.util.Arrays;
 public class recursivebubble {
-    int arr[];
     public static void main(String[] args) {
         int []arr = new int[]{2, 5, 1, 2, 4, 1, 6, 9};
         recursivebubble o = new recursivebubble();
