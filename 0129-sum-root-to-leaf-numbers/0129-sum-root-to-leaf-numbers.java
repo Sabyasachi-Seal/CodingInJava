@@ -21,12 +21,12 @@ class Solution {
         
         if(root == null) return ans;
         
-        dfs(root, 0, 0);
+        dfs(root, 0);
         
         return ans;
         
     }
-    private void dfs(TreeNode root, int sum, int curr){
+    private void dfs(TreeNode root, int curr){
         
         if(root == null){
             
@@ -39,8 +39,8 @@ class Solution {
             ans += curr;
         }
         else{
-            dfs(root.left, sum, curr);
-            dfs(root.right, sum, curr);
+            dfs(root.left, curr);
+            dfs(root.right, curr);
         }
         
         curr -= root.val;
