@@ -3,12 +3,12 @@ class Solution {
         
         long sum = 0;
         
-        int ans = Integer.MIN_VALUE;
+        int ans = nums[0];
+        sum = ans;
         
-        for(int i=0; i<nums.length; i++){
+        for(int i=1; i<nums.length; i++){
             sum += nums[i];
             ans = Math.max(ans, (int)Math.ceil((sum+i)/(i+1)));
-            
         }
         
         return ans;
