@@ -28,11 +28,17 @@ class Solution {
         
         if(node == null) return null;
         
+        return addChild(node);
+        
         // go to a node.
         // see if that node is added
         // if not then continue
         // add all its children in its list
         // if added then return
+        
+        
+    }
+    private Node addChild(Node node){
         
         if(v.containsKey(node.val)) return v.get(node.val);
         
@@ -42,7 +48,7 @@ class Solution {
         
         for(Node n: node.neighbors){
             
-            newNode.neighbors.add(cloneGraph(n));
+            newNode.neighbors.add(addChild(n));
             
         }
         
