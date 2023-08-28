@@ -140,32 +140,33 @@ class GfG
 	        } 
 	    }
 	    
-	    temp = root;
-	    nextTemp = root;
+	    Node nextPtr = root.next;
+	    Node btmPtr = root;
+        Node btmPtrPrev = null;
 	    
-	    while(!pq.isEmpty()){
-	        int i = pq.poll();
-	        System.out.print(i+ " ");
+	    while(nextPtr != null || btmPtr!=null){
+	        
+	        if(btmPtr == null){
+	            
+	            btmPtrPrev.bottom = nextPtr;
+	            
+	            btmPtr = nextPtr;
+	            
+	            nextPtr = nextPtr.next;
+	        }
+	        
+	        if(btmPtr != null){
+	            
+	            btmPtr.data = pq.poll();
+	            
+	            btmPtrPrev = btmPtr;
+	            
+	            btmPtr = btmPtr.bottom;
+	            
+	        }
+	        
 	    }
 	    
-	   // while(nextTemp != null){
-	        
-	   //     nextTemp.next = nextTemp.bottom;
-	        
-	   //     Node t = nextTemp.bottom;
-	        
-	   //     while(t!=null){
-	   //         t = t.bottom;
-	   //     }
-            
-	         
-	   // }
-	    
-	   // System.out.println(Arrays.asList(pq.size()));
-	   
-	   // System.out.println(Arrays.asList(pq));
-	    
-	    
-	    return null;
+	    return root;
     }
 }
