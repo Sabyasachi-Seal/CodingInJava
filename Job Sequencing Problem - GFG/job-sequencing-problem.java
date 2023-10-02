@@ -53,7 +53,7 @@ class Solution
         
         int[] ans = new int[2];
         
-        ans[0]++;
+        ans[0] ++;
         
         ans[1] += arr[0].profit;
         
