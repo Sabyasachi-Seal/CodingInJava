@@ -14,45 +14,53 @@
  * }
  */
 class Solution {
+    
+    ArrayList<TreeNode> freq = new ArrayList<>();
+    
+    int max = Integer.MIN_VALUE;
+    int count = 1;
+    TreeNode prev = null;
+    
     public int[] findMode(TreeNode root) {
         
-        HashMap<Integer, Integer> hm = new HashMap<>();
+        getFreq(root);
         
-        getFreq(root, hm);
+        int ans[] = new int[freq.size()];
         
-        int maxFreq = 0;
-        
-        for(int k: hm.values()){
-            maxFreq = Math.max(maxFreq, k);
+        for(int i=0; i<ans.length; i++){
+            ans[i] = freq.get(i).val;
         }
         
-        ArrayList<Integer> ans = new ArrayList<>();
+        return ans;
         
-        for(int k: hm.keySet()){
-            if(hm.get(k)==maxFreq){
-                ans.add(k);
+    }
+    private void getFreq(TreeNode root){
+        
+        if(root == null) return;
+        
+        getFreq(root.left);
+        
+        if(prev!=null){
+            if(prev.val == root.val){
+                count++;
+            }
+            else{
+                count=1;
             }
         }
         
-        int[] ret = new int[ans.size()];
-        
-        for(int i=0; i<ans.size(); i++){
-            ret[i] = ans.get(i);
+        if(count > max){
+            freq.clear();
+            freq.add(root);
+            max = count;
+        }
+        else if(count == max){
+            freq.add(root);
         }
         
+        prev = root;
         
-        return ret;
-        
-    }
-    private void getFreq(TreeNode root, HashMap<Integer, Integer> hm){
-        if(root == null){
-            return;
-        }
-        
-        hm.put(root.val, hm.getOrDefault(root.val, 0)+1);
-        
-        getFreq(root.left, hm);
-        getFreq(root.right, hm);
+        getFreq(root.right);
         
     }
 }
