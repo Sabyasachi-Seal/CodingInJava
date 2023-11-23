@@ -1,49 +1,44 @@
 class Solution {
     public List<Boolean> checkArithmeticSubarrays(int[] nums, int[] l, int[] r) {
         
-        ArrayList<Boolean> ans = new ArrayList<>();
+        List<Boolean> ans = new ArrayList<>();
         
         for(int i=0; i<l.length; i++){
-            
-            int left = l[i];
-            int right = r[i];
-            
-            if(right-left < 1) ans.add(false);
-            
-            else {
-                
-                int newArr[] = new int[right - left + 1];
-                
-                int ind = 0;
-                
-                for(int j=left; j<=right; j++){
-                    newArr[ind++] = nums[j];
-                }
-                
-                ans.add(getSeq(newArr));
-                
+            int[] arr = new int[r[i] - l[i] + 1];
+            for(int j=0; j<arr.length; j++){
+                arr[j] = nums[l[i] + j];
             }
-            
+            ans.add(check(arr));
         }
-        
         return ans;
     }
-    
-    private boolean getSeq(int[] nums){
+    private boolean check(int[] arr){
         
-        Arrays.sort(nums);
+        int minE = Integer.MAX_VALUE;
+        int maxE = Integer.MIN_VALUE;
         
-        int diff = nums[0] - nums[1];
+        HashSet<Integer> arrSet = new HashSet<>();
         
-        for(int i=1; i<nums.length-1; i++){
+        for(int i: arr){
+            minE = Math.min(minE, i);
+            maxE = Math.max(maxE, i);
             
-            if(nums[i]-nums[i+1] != diff){
+            arrSet.add(i);
+        }
+        
+        if((maxE - minE)%(arr.length-1) != 0) return false;
+        
+        int diff = (maxE - minE)/(arr.length-1);
+        
+        int curr = minE + diff;
+        
+        while(curr<maxE){
+            if(!arrSet.contains(curr)){
                 return false;
             }
-            
+            curr += diff;
         }
         
         return true;
-        
     }
 }
