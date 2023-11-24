@@ -3,14 +3,14 @@ class Solution {
         
         int ans = 0;
         
-        int maxLen = Integer.MAX_VALUE;
+        int minLen = Integer.MAX_VALUE;
         
         for(String s: strs){
-            maxLen = Math.min(maxLen, s.length());
+            minLen = Math.min(minLen, s.length());
         }
         
         Outer: 
-        for(int strC=0; strC<maxLen; strC++){
+        for(int strC=0; strC<minLen; strC++){
         
             if(strC >= strs[0].length()) break;
             
