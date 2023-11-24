@@ -16,7 +16,6 @@ class Solution {
             
             char currPref = strs[0].charAt(strC);
             
-            
             for(int i=1; i<strs.length; i++){
                 
                 if (strC >= strs[i].length() || currPref != strs[i].charAt(strC)){
