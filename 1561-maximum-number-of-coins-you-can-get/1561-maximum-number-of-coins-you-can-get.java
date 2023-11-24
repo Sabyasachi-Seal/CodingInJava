@@ -3,16 +3,17 @@ class Solution {
         
         Arrays.sort(piles);
         
-        ArrayDeque<Integer> dq = new ArrayDeque<>();
-        
-        for(int i: piles) dq.addFirst(i);
-        
         int ans = 0;
         
-        while(!dq.isEmpty()){
-            dq.removeFirst();
-            ans += dq.removeFirst();
-            dq.removeLast();
+        int skip = piles.length/3;
+        
+        for(int i=0; i<piles.length; i++){
+            
+            if(i<skip) continue;
+            
+            ans += piles[i];
+            i++;
+            
         }
         
         return ans;
