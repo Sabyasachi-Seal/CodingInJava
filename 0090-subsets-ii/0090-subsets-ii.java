@@ -21,7 +21,9 @@ class Solution {
         getSubsets(arr, ind+1, curr, ans, hs);
         
         curr.add(arr[ind]);
+        
         getSubsets(arr, ind+1, curr, ans, hs);
+        
         curr.remove(curr.size()-1);
         
         return ans;
