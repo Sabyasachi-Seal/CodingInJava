@@ -1,5 +1,5 @@
 class Solution {
-    List<List<String>> ans;
+    private List<List<String>> ans;
     public List<List<String>> solveNQueens(int n) {
         ans = new ArrayList<>();
         nQueens(n, 0, new ArrayList<>(), new boolean[n][n]);
