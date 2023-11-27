@@ -1,11 +1,9 @@
 class Solution {
     private List<List<Integer>> ans;
-    private boolean[] taken;
     
     public List<List<Integer>> permute(int[] nums) {
         
         ans = new ArrayList<>();
-        taken = new boolean[nums.length+1];
         
         getPermu(nums, 0, new ArrayList<>());
         
@@ -19,19 +17,20 @@ class Solution {
             return;
         }
         
-        // if(ind==arr.length) return ;
-        
         for(int i=0; i<arr.length; i++){
     
-            if(taken[i]) continue;
+            if(arr[i]==-11) continue;
             
-            taken[i] = true;
+            
+            int tempVar = arr[i];
+            
             curr.add(arr[i]);
+            arr[i] = -11;
             
             getPermu(arr, i+1, curr);
             
             curr.remove(curr.size()-1);
-            taken[i] = false;
+            arr[i] = tempVar;
             
         }
         
