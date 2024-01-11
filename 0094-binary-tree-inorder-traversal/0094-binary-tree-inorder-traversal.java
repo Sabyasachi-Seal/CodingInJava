@@ -22,15 +22,31 @@ class Solution {
     }
     private List<Integer> inorder(TreeNode root, List<Integer> ans){
         
-        if(root == null){
-            return ans;
+        while(root != null){
+            
+            if(root.left == null){
+                ans.add(root.val);
+                root = root.right;
+            }
+            else{
+                
+                TreeNode prev = root.left;
+                while(prev.right!=null && prev.right!=root){
+                    prev = prev.right;
+                }
+                if(prev.right==null){
+                    prev.right = root;
+                    root = root.left;
+                }
+                else{
+                    prev.right = null;
+                    ans.add(root.val);
+                    root = root.right;
+                }
+                
+            }
+            
         }
-        
-        inorder(root.left, ans);
-        ans.add(root.val);
-        inorder(root.right, ans);
-        
         return ans;
-    
     }
 }
